@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mandelbrot Browser</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename="js/script.js")}}"></script>
+</head>
+<style type="text/css">
+   body { background: black !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
+<body>
+    <div class="container">
+ <div class="page-header">
+    <h1 class="display-4 text-white">Mandelbrot Browser <small class="text-muted">By Luke Song</small></h1>
+ </div>
+      <div class="row">
+        <div class="col">.
+          <img src="/static/images/mandel.bmp" id="img" alt="Mandelbrot" width="700" height="700" img style="border:5px solid white">
+        </div>
+        <div class="col align-self-center text-center">
+            <div class="input-group input-group-lg-3" style="margin-bottom:5px">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">X</span>
+              </div>
+                <input type="text" id="xInput" class="form-control" value="0" placeholder="0" aria-label="xInput" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group input-group-lg-3" style="margin-bottom:5px">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Y</span>
+              </div>
+                <input type="text" id="yInput" class="form-control" value="0" placeholder="0" aria-label="xInput" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group input-group-lg-3" style="margin-bottom:5px">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Max</span>
+              </div>
+                <input type="text" id="maxInput" class="form-control" value="1000" placeholder="1000" aria-label="maxInput" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group input-group-lg-3" style="margin-bottom:5px">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">S</span>
+              </div>
+                <input type="text" id="sInput" class="form-control" value="4" placeholder="4" aria-label="sInput" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <button type="button" onclick="getNewImage();" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-lg btn-block" style="margin-top:15px;margin-bottom:15px">Generate!</button>
+            <div class="input-group input-group-lg-3" style="margin-bottom:5px">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Setting</span>
+              </div>
+                <input type="text" id="xval" class="form-control" placeholder="x" aria-label="xVal" aria-describedby="inputGroup-sizing-default" readonly>
+                <input type="text" id="yval" class="form-control" placeholder="y" aria-label="yVal" aria-describedby="inputGroup-sizing-default" readonly>
+                <input type="text" id="maxval" class="form-control" placeholder="max" aria-label="maxVal" aria-describedby="inputGroup-sizing-default" readonly>
+                <input type="text" id="sval" class="form-control" placeholder="s" aria-label="sVal" aria-describedby="inputGroup-sizing-default" readonly>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Modal -->
+
+
+</body>
